@@ -187,7 +187,7 @@ public class InterApplicationTests {
     public void context() throws ExecutionException, InterruptedException {
         AiPaExecutor executor = AiPa.newInstance(new AiPaWorker() {
             @Override
-            public Boolean run(Document document) {
+            public Boolean run(Document document, AiPaUtil util) {
                 String title = document.title();
                 demoResponse.save(new DemoEntity(title));
                 return true;
