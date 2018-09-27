@@ -1,5 +1,6 @@
 package cn.zyzpp;
 
+import cn.zyzpp.util.AiPaUtil;
 import cn.zyzpp.worker.AiPaWorker;
 import org.jsoup.nodes.Document;
 
@@ -9,7 +10,7 @@ import org.jsoup.nodes.Document;
 public class MyAiPaWorker implements AiPaWorker {
 
     @Override
-    public String run(Document doc) {
+    public String run(Document doc, AiPaUtil util) {
         //使用JSOUP进行HTML解析
         return doc.title() + doc.body().text();
     }

@@ -1,6 +1,7 @@
 package cn.zyzpp.executor;
 
 import cn.zyzpp.Callable.AiPaCallable;
+import cn.zyzpp.util.AiPaUtil;
 import cn.zyzpp.worker.AiPaWorker;
 import org.jsoup.Connection;
 
@@ -48,11 +49,11 @@ public class AiPaExecutor {
      * 提交任务
      *
      * @param list
-     * @param aiPaCallable  重写爬虫代码则
+     * @param aiPaUtil  重写爬虫代码则
      */
-    public void submit(List<String> list, Class<? extends AiPaCallable> aiPaCallable) throws IllegalAccessException, InstantiationException {
+    public void submit(List<String> list, Class<? extends AiPaUtil> aiPaUtil) throws IllegalAccessException, InstantiationException {
         for (int i = 0; i < list.size(); i++) {
-            futureList.add(executor.submit(aiPaCallable.newInstance().init(aiPaWorker, maxFailCount, list.get(i), null, null, null, 0, null)));
+            futureList.add(executor.submit(new AiPaCallable().init(aiPaWorker, maxFailCount, list.get(i),aiPaUtil.newInstance())));
         }
     }
 

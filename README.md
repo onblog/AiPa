@@ -20,13 +20,15 @@ jar包存放在Git，下载：[AIPa.jar](AIPa.jar)
 
 先来看下一个简单完整的示例程序：
 
+必须实现的接口
 ```
 public class MyAiPaWorker implements AiPaWorker {
 
     @Override
-    public String run(Document doc) {
+    public String run(Document doc, AiPaUtil util) {
         //使用JSOUP进行HTML解析获取想要的div节点和属性
         //保存在数据库或本地文件中
+        //新增aiPaUtil工具类可以再次请求网址
         return doc.title() + doc.body().text();
     }
 
@@ -40,7 +42,7 @@ public class MyAiPaWorker implements AiPaWorker {
 }
 ```
 
-
+main方法
 
 ```
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, ExecutionException, InterruptedException {
@@ -81,9 +83,10 @@ public interface AiPaWorker<T,S> {
     /**
      * 如何解析爬下来的HTML文档？
      * @param doc JSOUP提供的文档
+     * @param util 爬虫工具类
      * @return
      */
-    T run(Document doc);
+    T run(Document doc, AiPaUtil util);
 
     /**
      * run方法异常则执行fail方法
@@ -94,7 +97,7 @@ public interface AiPaWorker<T,S> {
 }
 ```
 
-`run()`方法是用户自定义处理爬取的HTML内容，一般是利用Jsoup的Document类进行解析，获取节点或属性等，然后保存到数据库或本地文件中。
+`run()`方法是用户自定义处理爬取的HTML内容，一般是利用Jsoup的Document类进行解析，获取节点或属性等，然后保存到数据库或本地文件中。如果在业务方法需要再次请求URL，可以使用工具类Util。
 
 `fail()`方法是当run()方法出现异常或爬取网页时异常，多次处理无效的情况下进入的方法，该方法的参数为此次出错的网址。一般是对其进行日志记录等操作。
 
@@ -116,12 +119,12 @@ public interface AiPaWorker<T,S> {
 
 ### 3.3 自定义爬虫类
 
-在上面的演示程序中，我们使用了`submit()`方法进行提交任务，默认是使用了Jsoup+上面的那些非加粗属性进行爬取，一般情况下够用，如果要一个一个的扩展Jsoup的方法太累了，于是我想了个偷懒的方法，我把爬虫方法设置为可继承的，提供给用户传入自定义类的接口，让用户自己去扩展，想用什么爬，想设置什么属性都可以。
+在上面的演示程序中，我们使用了`submit()`方法进行提交任务，默认是使用了Jsoup+上面的那些非加粗属性进行爬取，一般情况下够用，如果要一个一个的扩展Jsoup的方法太累了，于是我想到把爬虫方法提供给用户重，让用户自己去扩展，想用什么爬，想设置什么属性都可以。
 
 下面看下使用Demo：
 
 ```
-public class MyCallable extends AiPaCallable {
+public class MyAiPaUtil extends AiPaUtil {
 
     @Override
     protected Document getHtmlDocument(String link) throws IOException {
@@ -139,7 +142,7 @@ public class MyCallable extends AiPaCallable {
 然后，再调用submit方法提交任务，代码示例：
 
 ```
-aiPaExecutor.submit(linkList, MyCallable.class);
+aiPaExecutor.submit(linkList, MyAiPaUtil.class);
 ```
 
 注意：当你重写爬虫方法后，3.2小节的非加粗属性都会失效。

@@ -1,6 +1,7 @@
 package cn.zyzpp.worker;
 
 
+import cn.zyzpp.util.AiPaUtil;
 import org.jsoup.nodes.Document;
 
 /**
@@ -11,9 +12,10 @@ public interface AiPaWorker<T,S> {
     /**
      * 如何解析爬下来的HTML文档？
      * @param doc JSOUP提供的文档
+     * @param util 爬虫工具
      * @return
      */
-    T run(Document doc);
+    T run(Document doc, AiPaUtil util);
 
     /**
      * run方法异常则执行fail方法

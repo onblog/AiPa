@@ -1,6 +1,7 @@
 package cn.zyzpp;
 
 import cn.zyzpp.executor.AiPaExecutor;
+import cn.zyzpp.util.AiPaUtil;
 import cn.zyzpp.worker.AiPaWorker;
 import org.jsoup.nodes.Document;
 
@@ -17,7 +18,7 @@ public class AiPaTest {
         new AiPaTest().test2();
     }
 
-    public void test1() throws InstantiationException, IllegalAccessException, ExecutionException, InterruptedException {
+    public void test1() throws ExecutionException, InterruptedException {
         //准备网址集合
         List<String> linkList = new ArrayList<>();
         linkList.add("http://jb39.com/jibing/FeiQiZhong265988.htm");
@@ -28,7 +29,7 @@ public class AiPaTest {
         //第一步：新建爱爬
         AiPaExecutor aiPaExecutor = AiPa.newInstance(new AiPaWorker() {
             @Override
-            public String run(Document doc) {
+            public String run(Document doc, AiPaUtil util) {
                 //使用JSOUP进行HTML解析
                 return doc.title() + doc.body().text();
             }
@@ -67,7 +68,7 @@ public class AiPaTest {
         AiPaExecutor aiPaExecutor = AiPa.newInstance(new MyAiPaWorker());
         //第二步：提交任务,这里自定义爬虫类。
         for (int i = 0; i < 10; i++) {
-            aiPaExecutor.submit(linkList, MyCallable.class);
+            aiPaExecutor.submit(linkList, MyAiPaUtil.class);
         }
         //第三步：读取返回值
         List<Future> futureList = aiPaExecutor.getFutureList();
