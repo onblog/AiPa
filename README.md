@@ -14,7 +14,7 @@ AiPa是一个小巧的、只有390KB的jar包。
 
 下载该Jar包导入到你的项目中即可使用。
 
-jar包存放在Git，下载：![AIPa.jar](AIPa.jar)
+jar包存放在Git，下载：[AIPa.jar](AIPa.jar)
 
 ## 3.如何使用
 
