@@ -30,11 +30,11 @@ public class AiPaCallable implements Callable<Object> {
         return this;
     }
 
-    public AiPaCallable init(AiPaWorker aiPaWorker, int maxFailCount, String link, Charset charset, Map<String, String> header, Connection.Method method, int timeout, String userAgent) {
+    public AiPaCallable init(AiPaWorker aiPaWorker, int maxFailCount, String link, Charset charset, Map<String, String> header, Connection.Method method, int timeout, String userAgent,Map<String, String> cookies) {
         this.aiPaWorker = aiPaWorker;
         this.maxFailCount = maxFailCount;
         this.link = link;
-        this.aiPaUtil = new AiPaUtil(charset,header,method,timeout,userAgent);
+        this.aiPaUtil = new AiPaUtil(charset,header,method,timeout,userAgent,cookies);
         return this;
     }
 

@@ -11,22 +11,24 @@ import java.util.Map;
 /**
  * Create by yster@foxmail.com 2018/9/27/027 20:26
  */
-public class AiPaUtil{
+public class AiPaUtil {
     private Charset charset; //网页编码
     private Map<String, String> header; //请求头
     private Connection.Method method;  //请求方法
     private int timeout; // 请求超时
     private String userAgent;// UA
+    private Map<String, String> cookies; //Cookies
 
     public AiPaUtil() {
     }
 
-    public AiPaUtil(Charset charset, Map<String, String> header, Connection.Method method, int timeout, String userAgent) {
+    public AiPaUtil(Charset charset, Map<String, String> header, Connection.Method method, int timeout, String userAgent, Map<String,String> cookies) {
         this.charset = charset;
         this.header = header;
         this.method = method;
         this.timeout = timeout;
         this.userAgent = userAgent;
+        this.cookies = cookies;
     }
 
     /**
@@ -43,6 +45,10 @@ public class AiPaUtil{
             for (Map.Entry<String, String> entry : header.entrySet()) {
                 connection.header(entry.getKey(), entry.getValue());
             }
+        }
+        //设置Cookies
+        if (cookies != null) {
+            connection.cookies(cookies);
         }
         // 开爬
         Connection.Response response = connection.execute().charset(charset.name());

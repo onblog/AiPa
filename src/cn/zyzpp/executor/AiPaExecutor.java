@@ -22,6 +22,7 @@ public class AiPaExecutor {
     private int maxFailCount = 5;
     private Charset charset = Charset.forName("UTF-8");
     private Map<String, String> header = null;
+    private Map<String, String> cookies = null;
     private String userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36";
     private int timeout = 30 * 1000;
     private Connection.Method method = Connection.Method.GET;
@@ -41,7 +42,7 @@ public class AiPaExecutor {
      */
     public void submit(List<String> list) {
         for (int i = 0; i < list.size(); i++) {
-            futureList.add(executor.submit(new AiPaCallable().init(aiPaWorker, maxFailCount, list.get(i), charset, header, method, timeout, userAgent)));
+            futureList.add(executor.submit(new AiPaCallable().init(aiPaWorker, maxFailCount, list.get(i), charset, header, method, timeout, userAgent, cookies)));
         }
     }
 
@@ -49,11 +50,11 @@ public class AiPaExecutor {
      * 提交任务
      *
      * @param list
-     * @param aiPaUtil  重写爬虫代码则
+     * @param aiPaUtil 重写爬虫代码则
      */
     public void submit(List<String> list, Class<? extends AiPaUtil> aiPaUtil) throws IllegalAccessException, InstantiationException {
         for (int i = 0; i < list.size(); i++) {
-            futureList.add(executor.submit(new AiPaCallable().init(aiPaWorker, maxFailCount, list.get(i),aiPaUtil.newInstance())));
+            futureList.add(executor.submit(new AiPaCallable().init(aiPaWorker, maxFailCount, list.get(i), aiPaUtil.newInstance())));
         }
     }
 
@@ -93,6 +94,7 @@ public class AiPaExecutor {
 
     /**
      * 重写爬虫代码则属性无效
+     *
      * @param charset 网页解码格式
      * @return
      */
@@ -112,6 +114,7 @@ public class AiPaExecutor {
 
     /**
      * 重写爬虫代码则属性无效
+     *
      * @param header 请求头
      */
     public AiPaExecutor setHeader(Map<String, String> header) {
@@ -121,6 +124,7 @@ public class AiPaExecutor {
 
     /**
      * 重写爬虫代码则属性无效
+     *
      * @param method 请求方法
      */
     public AiPaExecutor setMethod(Connection.Method method) {
@@ -131,6 +135,7 @@ public class AiPaExecutor {
     /**
      * 默认超时时间为30秒(30000毫秒)。零超时被视为无限超时。
      * 重写爬虫代码则属性无效
+     *
      * @param timeout 请求超时
      */
     public AiPaExecutor setTimeout(int timeout) {
@@ -141,11 +146,21 @@ public class AiPaExecutor {
     /**
      * 自定义UA
      * 重写爬虫代码则属性无效
+     *
      * @param userAgent
      */
     public AiPaExecutor setUserAgent(String userAgent) {
         this.userAgent = userAgent;
         return this;
     }
-
+    /**
+     * 设置Cookies
+     * 重写爬虫代码则属性无效
+     *
+     * @param cookies
+     */
+    public AiPaExecutor setCookies(Map<String,String> cookies) {
+        this.cookies = cookies;
+        return this;
+    }
 }
