@@ -114,7 +114,7 @@ public interface AiPaWorker<T,S> {
 | setMethod           | 设置请求方法，默认Method.GET                                 |
 | setTimeout          | 请求解析的等待时间，默认30秒。                               |
 | setUserAgent        | 设置请求的UA，默认电脑版。                                   |
-| setCookies        | 设置Cookie集合，默认null。                                   |
+| setCookies        | 设置Cookie集合，默认null                                  |
 
 上面的一般情况下够用了，如果对这些不满意，嫌太少啥的，下面给了更优秀的解决方案。
 
