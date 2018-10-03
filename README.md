@@ -122,7 +122,7 @@ public interface AiPaWorker<T,S> {
 
 在上面的演示程序中，我们使用了`submit()`方法进行提交任务，默认是使用了Jsoup+上面的那些非加粗属性进行爬取，一般情况下够用，如果要一个一个的扩展Jsoup的方法太累了，于是我想到把爬虫方法提供给用户重，让用户自己去扩展，想用什么爬，想设置什么属性都可以。
 
-下面看下使用Demo：
+下面请看使用Demo：
 
 ```
 public class MyAiPaUtil extends AiPaUtil {
