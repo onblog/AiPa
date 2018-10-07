@@ -42,7 +42,7 @@ public class MyAiPaWorker implements AiPaWorker {
 }
 ```
 
-main方法
+Main方法
 
 ```
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, ExecutionException, InterruptedException {
