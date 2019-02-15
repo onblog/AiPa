@@ -21,7 +21,7 @@ jar包存放在Git，下载：[AIPa.jar](AIPa.jar)
 先来看下一个简单完整的示例程序：
 
 必须实现的接口
-```
+```java
 public class MyAiPaWorker implements AiPaWorker {
 
     @Override
@@ -44,7 +44,7 @@ public class MyAiPaWorker implements AiPaWorker {
 
 Main方法
 
-```
+```java
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, ExecutionException, InterruptedException {
         //准备网址集合
         List<String> linkList = new ArrayList<>();
@@ -78,7 +78,7 @@ AiPaWorker 接口是用户必须要实现的业务类。
 
 该接口方法如下：
 
-```
+```java
 public interface AiPaWorker<T,S> {
     /**
      * 如何解析爬下来的HTML文档？
@@ -124,7 +124,7 @@ public interface AiPaWorker<T,S> {
 
 下面请看使用Demo：
 
-```
+```java
 public class MyAiPaUtil extends AiPaUtil {
 
     @Override
@@ -176,7 +176,7 @@ public ExecutorService getExecutor()
 
 在Spring Boot中写了个测试用例，爬取数据保存到数据库，运行也没问题。
 
-```
+```java
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InterApplicationTests {
