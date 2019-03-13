@@ -8,13 +8,8 @@ AiPa 依赖当下最简单的HTML解析器Jsoup。
 
 AiPa 只需要使用者提供网址集合，即可在多线程下自动爬取，并对一些异常进行处理。
 
-## 2.下载安装
-
-AiPa是一个小巧的、只有390KB的jar包。
-
-下载该Jar包导入到你的项目中即可使用。
-
-jar包存放在Git，下载：[AIPa.jar](AIPa.jar)
+## 2.Maven依赖
+直接引入
 
 ```xml
 <dependency>
