@@ -15,7 +15,7 @@ AiPa 只需要使用者提供网址集合，即可在多线程下自动爬取，
 <dependency>
     <groupId>cn.yueshutong</groupId>
     <artifactId>AiPa</artifactId>
-    <version>1.0-RELEASE</version>
+    <version>1.0.0.RELEASE</version>
 </dependency>
 ```
 
