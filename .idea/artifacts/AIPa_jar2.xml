@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="AIPa:jar2">
-    <output-path>$PROJECT_DIR$/out/artifacts/AIPa_jar2</output-path>
-    <root id="archive" name="AIPa.jar">
-      <element id="module-output" name="AIPa" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jsoup-1.11.1.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
