@@ -237,8 +237,6 @@ Hibernate: insert into demo (title) values (?)
 
 *由于作者水平有限，框架一定存在一些漏洞或不足，希望各位专家、大佬提出批评指正！*
 
-*Github：https://github.com/yueshutong/AIPa*
-
-交流QQ群：781927207
+*Github：https://github.com/ystcode/AIPa*
 
 <img src='https://i.loli.net/2020/01/13/pPoFNwT6fKCZQ2i.png' width="400px" />
