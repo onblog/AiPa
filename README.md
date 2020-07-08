@@ -237,7 +237,7 @@ Hibernate: insert into demo (title) values (?)
 
 *由于作者水平有限，框架一定存在一些漏洞或不足，希望各位专家、大佬提出批评指正！*
 
-Email：[yster@foxmail.com](mailto:yster@foxmail.com)
+Email：[codeblog@qq.com](mailto:codeblog@qq.com)
 
 如果帮助到你了，请不吝赞赏！谢谢！
 
