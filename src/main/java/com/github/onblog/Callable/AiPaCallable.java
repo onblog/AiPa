@@ -1,7 +1,7 @@
-package cn.yueshutong.Callable;
+package com.github.onblog.Callable;
 
-import cn.yueshutong.util.AiPaUtil;
-import cn.yueshutong.worker.AiPaWorker;
+import com.github.onblog.util.AiPaUtil;
+import com.github.onblog.worker.AiPaWorker;
 import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
 

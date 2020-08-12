@@ -1,7 +1,7 @@
-package cn.yueshutong;
+package com.github.onblog;
 
-import cn.yueshutong.executor.AiPaExecutor;
-import cn.yueshutong.worker.AiPaWorker;
+import com.github.onblog.executor.AiPaExecutor;
+import com.github.onblog.worker.AiPaWorker;
 
 /**
  * Create by yster@foxmail.com 2018/9/27/027 14:38

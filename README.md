@@ -13,9 +13,9 @@ AiPa 只需要使用者提供网址集合，即可在多线程下自动爬取，
 
 ```xml
 <dependency>
-    <groupId>cn.yueshutong</groupId>
+    <groupId>com.github.onblog</groupId>
     <artifactId>AiPa</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>2.0.0.RELEASE</version>
 </dependency>
 ```
 

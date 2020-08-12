@@ -1,4 +1,4 @@
-package cn.yueshutong.util;
+package com.github.onblog.util;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;

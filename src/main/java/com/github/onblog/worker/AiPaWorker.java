@@ -1,7 +1,7 @@
-package cn.yueshutong.worker;
+package com.github.onblog.worker;
 
 
-import cn.yueshutong.util.AiPaUtil;
+import com.github.onblog.util.AiPaUtil;
 import org.jsoup.nodes.Document;
 
 /**

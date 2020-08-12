@@ -1,8 +1,8 @@
-package cn.yueshutong;
+package com.github.onblog;
 
-import cn.yueshutong.executor.AiPaExecutor;
-import cn.yueshutong.util.AiPaUtil;
-import cn.yueshutong.worker.AiPaWorker;
+import com.github.onblog.executor.AiPaExecutor;
+import com.github.onblog.util.AiPaUtil;
+import com.github.onblog.worker.AiPaWorker;
 import org.jsoup.nodes.Document;
 
 import java.nio.charset.Charset;

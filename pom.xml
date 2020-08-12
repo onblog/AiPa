@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.yueshutong</groupId>
+    <groupId>com.github.com</groupId>
     <artifactId>AiPa</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>2.0.0.RELEASE</version>
 
     <packaging>jar</packaging>
 
     <name>AiPa</name>
-    <url>https://github.com/yueshutong/AIPa</url>
+    <url>https://github.com/onblog/AIPa</url>
     <description>Java multi-threaded crawler framework</description>
 
     <properties>
@@ -107,16 +107,16 @@
 
     <scm>
         <tag>master</tag>
-        <url>https://github.com/yueshutong/AIPa.git</url>
-        <connection>scm:git:git://github.com/yueshutong/AIPa.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/yueshutong/AIPa.git</developerConnection>
+        <url>https://github.com/onblog/AIPa.git</url>
+        <connection>scm:git:git://github.com/onblog/AIPa.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/onblog/AIPa.git</developerConnection>
     </scm>
 
     <developers>
         <developer>
-            <name>YueShuTong</name>
-            <email>yster@foxmail.com</email>
-            <url>http://www.yueshutong.cn</url>
+            <name>onblog</name>
+            <email>codeblog@qq.com</email>
+            <url>http://github.com/onblog</url>
         </developer>
     </developers>
 
