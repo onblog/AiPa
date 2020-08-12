@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.com</groupId>
+    <groupId>com.github.onblog</groupId>
     <artifactId>AiPa</artifactId>
     <version>2.0.0.RELEASE</version>
 
@@ -81,7 +81,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.9.1</version>
+                    <version>3.0.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-gpg-plugin</artifactId>
@@ -107,9 +107,9 @@
 
     <scm>
         <tag>master</tag>
-        <url>https://github.com/onblog/AIPa.git</url>
-        <connection>scm:git:git://github.com/onblog/AIPa.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/onblog/AIPa.git</developerConnection>
+        <url>https://github.com/onblog/AiPa.git</url>
+        <connection>scm:git:git://github.com/onblog/AiPa.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/onblog/AiPa.git</developerConnection>
     </scm>
 
     <developers>
@@ -135,6 +135,12 @@
         <profile>
             <!-- -P release -->
             <id>release</id>
+            <repositories>
+                <repository>
+                    <id>releases_maven</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+                </repository>
+            </repositories>
             <build>
                 <plugins>
                     <!-- Source -->
@@ -162,11 +168,17 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <additionalJOptions>
+                                <additionalJOption>-Xdoclint:none</additionalJOption>
+                            </additionalJOptions>
+                        </configuration>
                     </plugin>
                     <!-- GPG -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
                         <executions>
                             <execution>
                                 <phase>verify</phase>
